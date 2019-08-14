@@ -10,11 +10,13 @@
 
 #include "enemyexplosion.h"
 
+class Game;
+
 class Bullet : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    Bullet(QGraphicsItem *parent = nullptr);
+    Bullet(Game *game, QGraphicsItem *parent = nullptr);
     QRectF boundingRect() const;
     QSoundEffect m_fireAudio;
 
@@ -22,6 +24,7 @@ private slots:
     void move();
 
 private:
+    Game *game;
     static QUrl m_audioSource;
     QRectF m_boundingRect;
 };

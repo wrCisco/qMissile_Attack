@@ -18,7 +18,8 @@
 #include "stats.h"
 
 
-Game::Game() : QGraphicsView(),
+Game::Game() :
+    QGraphicsView(),
     m_bullets_pixmap(":/images/bullet"),
     m_enemies_pixmap(":/images/enemy_missile"),
     m_enemies_explosion_sheet(":/images/missile_explosion"),
@@ -81,7 +82,7 @@ void Game::populateScene()
 //    border->setZValue(2);
 //    scene->addItem(border);
 
-    m_stats = new Stats(m_sceneWidth, 55);
+    m_stats = new Stats(m_sceneWidth, 55, this);
     m_scene->addItem(m_stats);
 
     const qreal dist_buildings = 65.0;
@@ -110,7 +111,7 @@ void Game::populateScene()
     offsetX += building3->boundingRect().width() + dist_buildings;
     building4->setPos(offsetX, m_sceneHeight - building4->boundingRect().height() + 3);
 
-    m_cannon = new Cannon();
+    m_cannon = new Cannon(this);
     m_scene->addItem(m_cannon);
     m_cannon->setPos(m_sceneWidth / 2 - m_cannon->boundingRect().width() / 2,
                      m_sceneHeight - m_cannon->rotationPoint().y());
@@ -289,7 +290,7 @@ void Game::spawnEnemies()
 {
     unsigned int enemies = QRandomGenerator::global()->generate() % (m_max_enemy_spawned + 1);
     for (unsigned int i = 0; i < enemies; ++i) {
-        Enemy *enemy = new Enemy(m_enemy_speed);
+        Enemy *enemy = new Enemy(m_enemy_speed, this);
         m_scene->addItem(enemy);
     }
 }

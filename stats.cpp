@@ -7,7 +7,9 @@
 
 extern Game *game;
 
-Stats::Stats(int width, int height, QGraphicsItem *parent) : QGraphicsRectItem(parent)
+Stats::Stats(int width, int height, Game *game, QGraphicsItem *parent) :
+    QGraphicsRectItem(parent),
+    game { game }
 {
     setPos(0, 0);
     setRect(0, 0, width, height);

@@ -1,15 +1,16 @@
-#include "game.h"
+#include <memory>
+
 #include <QApplication>
 #include <QIcon>
 
-Game *game;
+#include "game.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     a.setWindowIcon(QIcon(":/images/enemy_missile"));
 
-    game = new Game();
+    Game *game = new Game();
     game->populateScene();
     game->show();
 

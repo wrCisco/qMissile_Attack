@@ -10,9 +10,11 @@
 #include "base.h"
 #include "buildingexplosion.h"
 
-extern Game *game;
 
-Enemy::Enemy(int speed, QGraphicsItem *parent) : QGraphicsPixmapItem(parent), m_speed(speed)
+Enemy::Enemy(int speed, Game *game, QGraphicsItem *parent) :
+    QGraphicsPixmapItem(parent),
+    game { game },
+    m_speed(speed)
 {
     setPixmap(game->m_enemies_pixmap);
     // set the center of the item to internal coordinates (0, 0)
@@ -58,8 +60,8 @@ void Enemy::move()
     for (int i = 0, n = colliding_items.size(); i < n; ++i) {
         Building *building = dynamic_cast<Building *>(colliding_items[i]);
         if (building && !building->m_hit) {
-            BuildingExplosion *explosion = new BuildingExplosion();
-            BuildingExplosion *explosion2 = new BuildingExplosion();
+            BuildingExplosion *explosion = new BuildingExplosion(game);
+            BuildingExplosion *explosion2 = new BuildingExplosion(game);
             QPointF explosion_point = building->mapToScene(building->boundingRect().center().x(),
                                                            building->boundingRect().height());
             game->m_scene->addItem(explosion);

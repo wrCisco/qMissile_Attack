@@ -4,9 +4,12 @@
 #include "enemyexplosion.h"
 #include "game.h"
 
-extern Game *game;
 
-EnemyExplosion::EnemyExplosion(QGraphicsItem *parent): QObject(), QGraphicsItem(parent), m_current_frame(0)
+EnemyExplosion::EnemyExplosion(Game *game, QGraphicsItem *parent) :
+    QObject(),
+    QGraphicsItem(parent),
+    game { game },
+    m_current_frame(0)
 {
     connect(game->m_faster_animation_timer, SIGNAL(timeout()), this, SLOT(nextFrame()));
 }

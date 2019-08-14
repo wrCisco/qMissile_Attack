@@ -9,17 +9,20 @@
 #include <QTimer>
 #include <QObject>
 
+class Game;
+
 class Enemy : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    Enemy(int speed, QGraphicsItem *parent = nullptr);
+    Enemy(int speed, Game *game, QGraphicsItem *parent = nullptr);
     QRectF boundingRect() const;
 
 public slots:
     void move();
 
 private:
+    Game *game;
     QRectF m_boundingRect;
     QPointF m_beginning;
     QPointF m_destination;

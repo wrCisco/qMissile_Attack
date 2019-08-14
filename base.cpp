@@ -1,7 +1,8 @@
 #include "base.h"
 
 
-Base::Base(QGraphicsItem *parent) : QGraphicsPixmapItem(parent)
+Base::Base(QGraphicsItem *parent) :
+    QGraphicsPixmapItem(parent)
 {
     setPixmap(QPixmap(":/images/base"));
 }

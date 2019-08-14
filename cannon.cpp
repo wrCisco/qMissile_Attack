@@ -6,9 +6,11 @@
 
 #include <QDebug>
 
-extern Game *game;
 
-Cannon::Cannon(QGraphicsItem *parent) : QObject(), QGraphicsPixmapItem(parent)
+Cannon::Cannon(Game *game, QGraphicsItem *parent) :
+    QObject(),
+    QGraphicsPixmapItem(parent),
+    game { game }
 {
     setPixmap(QPixmap(":/images/cannon"));
 
@@ -49,7 +51,7 @@ void Cannon::fire(QPointF dest)
     QLineF ln(mapToScene(rotationPoint()), dest);
     qreal angle = -1 * ln.angle();
 
-    Bullet *bullet = new Bullet();
+    Bullet *bullet = new Bullet(game);
 
     bullet->setPos(mapToScene(firePoint()));
     bullet->setRotation(angle);

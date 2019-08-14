@@ -9,11 +9,14 @@
 
 #include <QDebug>
 
-extern Game *game;
 
 QUrl Bullet::m_audioSource("qrc:/audio/fire.wav");
 
-Bullet::Bullet(QGraphicsItem *parent) : QObject(), QGraphicsPixmapItem(parent), m_fireAudio(this)
+Bullet::Bullet(Game *game, QGraphicsItem *parent) :
+    QObject(),
+    QGraphicsPixmapItem(parent),
+    m_fireAudio(this),
+    game { game }
 {
     setPixmap(game->m_bullets_pixmap);
 
@@ -50,7 +53,7 @@ void Bullet::move()
         if (enemy) {
             QPointF explosion_point(enemy->mapToScene(enemy->boundingRect().center()));
             qreal explosion_rotation = enemy->rotation();
-            EnemyExplosion *explosion = new EnemyExplosion();
+            EnemyExplosion *explosion = new EnemyExplosion(game);
             explosion->setPos(explosion_point);
             explosion->setRotation(explosion_rotation);
             game->m_scene->addItem(explosion);

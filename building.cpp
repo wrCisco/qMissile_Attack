@@ -6,8 +6,12 @@
 
 QUrl Building::m_audioSource("qrc:/audio/building_explosion.wav");
 
-Building::Building(QString pixmap, QGraphicsItem *parent) : QObject(), QGraphicsPixmapItem(parent),
-    m_pixmap(pixmap), m_hit(false), m_explosionAudio(this)
+Building::Building(QString pixmap, QGraphicsItem *parent) :
+    QObject(),
+    QGraphicsPixmapItem(parent),
+    m_pixmap(pixmap),
+    m_hit(false),
+    m_explosionAudio(this)
 {
     setPixmap(QPixmap(QString(":/images/") + m_pixmap));
     m_explosionAudio.setSource(m_audioSource);

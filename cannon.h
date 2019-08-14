@@ -8,12 +8,13 @@
 #include <QTimer>
 #include <QPointF>
 
+class Game;
 
 class Cannon : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    Cannon(QGraphicsItem *parent = nullptr);
+    Cannon(Game *game, QGraphicsItem *parent = nullptr);
     QPointF center();
     QPointF rotationPoint();
     QPointF firePoint();
@@ -28,6 +29,7 @@ public slots:
     void repaired();
 
 private:
+    Game *game;
     QPointF m_rotationPoint;
     QPointF m_firePoint;
     bool m_damaged = false;
