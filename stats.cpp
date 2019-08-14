@@ -5,7 +5,6 @@
 #include "stats.h"
 #include "game.h"
 
-extern Game *game;
 
 Stats::Stats(int width, int height, Game *game, QGraphicsItem *parent) :
     QGraphicsRectItem(parent),
