@@ -24,27 +24,27 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        main.cpp \
-    game.cpp \
-    building.cpp \
-    cannon.cpp \
-    base.cpp \
-    bullet.cpp \
-    enemy.cpp \
-    stats.cpp \
-    enemyexplosion.cpp \
-    buildingexplosion.cpp
+    src/base.cpp \
+    src/building.cpp \
+    src/buildingexplosion.cpp \
+    src/bullet.cpp \
+    src/cannon.cpp \
+    src/enemy.cpp \
+    src/enemyexplosion.cpp \
+    src/game.cpp \
+    src/main.cpp \
+    src/stats.cpp \
 
 HEADERS += \
-    game.h \
-    building.h \
-    cannon.h \
-    base.h \
-    bullet.h \
-    enemy.h \
-    stats.h \
-    enemyexplosion.h \
-    buildingexplosion.h
+    src/base.h \
+    src/building.h \
+    src/buildingexplosion.h \
+    src/bullet.h \
+    src/cannon.h \
+    src/enemy.h \
+    src/enemyexplosion.h \
+    src/game.h \
+    src/stats.h \
 
 FORMS +=
 
