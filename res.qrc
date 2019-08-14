@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/images">
+        <file alias="cannon">resources/cannone.png</file>
+        <file alias="bg_old.png">resources/main_fail.png</file>
+        <file alias="bullet">resources/bullet.png</file>
+        <file alias="white_home_destroyed">resources/casa_bianca_camino_distrutta.png</file>
+        <file alias="white_home">resources/casa_bianca_camino_intera.png</file>
+        <file alias="yellow_home_destroyed">resources/casa_gialla_torre_distrutta.png</file>
+        <file alias="yellow_home">resources/casa_gialla_torre_intera.png</file>
+        <file alias="enemy_missile">resources/enemy_missile.png</file>
+        <file alias="green_palace">resources/palazzo_verde_intero.png</file>
+        <file alias="gas_station_destroyed">resources/stazione_gas_distrutta.png</file>
+        <file alias="gas_station">resources/stazione_gas_intera.png</file>
+        <file alias="green_palace_destroyed">resources/palazzo_verde_distrutto.png</file>
+        <file alias="base">resources/Base_Red_Idle.png</file>
+        <file alias="bg.png">resources/background.png</file>
+        <file alias="building_explosion">resources/building_explosion.png</file>
+        <file alias="missile_explosion">resources/missile_explosion.png</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file alias="audiowide.ttf">resources/Audiowide-Regular.ttf</file>
+    </qresource>
+    <qresource prefix="/audio">
+        <file alias="fire.wav">resources/little_robot_sound_factory_Laser_09.wav</file>
+        <file alias="building_explosion.wav">resources/Explosion-sound-effect.wav</file>
+        <file alias="bg.mp3">resources/audio_hero_Hostage-Crisis_SIPML_J-0509.mp3</file>
+    </qresource>
+</RCC>
